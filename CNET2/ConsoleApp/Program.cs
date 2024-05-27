@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-int[] numbers = { 11, 2, 13, 97542, 44, -5, 6, 127, -99, 0, 256, 0, 12, 11 };
+int[] numbers = { 11, 2, 13, -97542, 44, -5, 6, 127, -99, 0, 256, 0, 12, 11 };
 
 // 1.  kolik obsahuje pole kladných čísel
 // 2.  kolik obsahuje pole záporných čísel
@@ -32,11 +32,12 @@ var skip3sum = numbers.Skip(3).Sum();
 Console.WriteLine($"skip3sum: {skip3sum}");
 
 
+// All, Any
+bool vsechna_kladna = numbers.All(x => x > 0);
+bool alespon_jedno_kladne = numbers.Any(x => x > 0);
 
 
-
-
-
+var fruits = new[] { "aPPLE", "BlUeBeRrY", "cHeRry", "RaspbeRry" };
 
 
 
