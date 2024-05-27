@@ -16,7 +16,7 @@ Console.WriteLine($"pocet_kladnych: {pocet_kladnych}");
 var pocet_zapornych = numbers.Where(x => x < 0).Count();
 Console.WriteLine($"pocet_zapornych: {pocet_zapornych}");
 
-var suma_kladnych = numbers.Sum();
+var suma_kladnych = numbers.Where(x => x > 0).Sum();
 Console.WriteLine($"suma_kladnych: {suma_kladnych}");
 
 var nejv_abs = numbers.Select(x => Math.Abs(x)).Max();
