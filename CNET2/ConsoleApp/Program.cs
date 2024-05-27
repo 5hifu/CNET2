@@ -12,14 +12,6 @@ Console.WriteLine($"jako slova: {string.Join(", ", jako_slova)}");
 
 
 
-
-
-
-
-
-
-
-
 //int[] numbers = { 11, 2, 13, -97542, 44, -5, 6, 127, -99, 0, 256, 0, 12, 11 };
 
 //// 1.  kolik obsahuje pole kladných čísel
