@@ -39,6 +39,8 @@ bool alespon_jedno_kladne = numbers.Any(x => x > 0);
 
 var fruits = new[] { "aPPLE", "BlUeBeRrY", "cHeRry", "RaspbeRry" };
 
+// zjistěte kolik obsahují všechna slova v poli "fruits" dohromady písmen
+
 
 
 
