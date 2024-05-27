@@ -1,27 +1,45 @@
 ﻿using ConsoleApp;
-using System.Reflection.Emit;
-
-
-string[] jmena = ["Lukáš", "Karel", "Tomáš", "Martin",
-                "Radim", "Jakub", "Sofián"];
 
 List<string> jmena_list = ["Lukáš", "Karel", "Tomáš", 
             "Martin", "Radim", "Jakub", "Sofián"];
 
+jmena_list.Add("Petra");
 
-List<string> jmena_list2 = new() {"Lukáš", "Karel", "Tomáš",
-            "Martin", "Radim", "Jakub", "Sofián"};
+Console.WriteLine("Pocet lidi v seznamu: " + jmena_list.Count);
 
-foreach(string jmeno in jmena_list)
+foreach (var jmeno in jmena_list)
 {
-    Console.WriteLine(jmeno);
+    Console.WriteLine(jmeno + " pocet pismen: " + jmeno.Length);
 }
+
+
+Dictionary<int, string> dnyVTydnu = new Dictionary<int, string>()
+{
+    {1, "Pondělí"},
+    {2, "Úterý"},
+    {3, "Středa"},
+    {4, "Čtvrtek"},
+    {5, "Pátek"},
+    {6, "Sobota"},
+    {7, "Neděle"},
+};
+
+var streda = dnyVTydnu[3];
+
+
+
+
+
+
+    
+
 
 //for(int i = 0; i < jmena.Length; i++)
 //{
 //    var jmeno = jmena[i];
 //    Console.WriteLine(jmeno);
 //}
+
 
 
 
