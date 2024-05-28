@@ -1,0 +1,38 @@
+kdy použijete Dictionary
+	kolekce klíčů a hodnot
+	dictionary["září"] = ["September", "shining" ];
+
+popište rozdíl mezi "var" a "new()"
+	var prom = new Person - implicitní typování
+	new() - volání konstruktoru
+	
+popište rozdíl mezi internal, public, private, protected
+	public - přistup ode všud
+	private - pouze v rámci třidy
+	protected - private + dědičnost
+	interal - assembly/projektu
+
+jaké operace s listem znáte	
+	Add, Remove, Contains, Insert..
+
+
+příklad LINQ metody/operatoru, která vrací:
+* jedno číslo
+	Max, Sum, Min, Avg, Count
+	
+* stejný počet prvků, ale jiného typu jako vstup
+	Select
+	
+* stejný typ prvků, ale jiný počet
+	Where
+
+* stejný počet, stejný typ
+	OrderBy
+
+kdy použijete statickou vs nestatickou metodu
+	instanční
+	statická - Class.Metoda()
+	instanční - instance.Metoda()
+
+co je lambda
+	LINQ, (parametry ) => tělo funkce, vrací 
