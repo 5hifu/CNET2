@@ -1,26 +1,18 @@
 ﻿using PersonData;
 using PersonModel;
+using System.Net.Http.Json;
 
-var dataset = DatasetAccess.LoadData(@"C:\Users\Student\source\repos\kubicek-skoleni\CNET2\data2024.json");
+var url = "https://localhost:7031";
 
-var context = new PeopleContext();
+var client = new HttpClient();
+int id = 228;
 
-var cnt = context.People.Count();
+Person? p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
 
-Console.WriteLine($"people cnt: {cnt}");
+Console.WriteLine(p);
 
-Console.WriteLine("Naplnit db? (y/n)");
-var answer = Console.ReadLine();
-if(answer.ToLower() == "y")
-{
-    context.People.AddRange(dataset);
-    context.SaveChanges();
-    Console.WriteLine("done");
-}
-else
-{
-    Console.WriteLine("skipping");
-}
+Console.ReadLine();
+
 
 
 
