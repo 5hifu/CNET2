@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Mvc;
 using PersonData;
+using PersonModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,12 @@ app.MapGet("/person/searchemail/{email}", (string email, PeopleContext db) =>
     db.People.Where(osoba => osoba.Email.ToLower().Contains(email.ToLower()))
 );
 
+app.MapPost("/person/create", (Person person, PeopleContext db) =>
+{
+    db.People.Add(person);
+    db.SaveChanges();
+    return person;
+});
 
 app.Run();
 

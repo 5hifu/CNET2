@@ -5,25 +5,17 @@ using System.Net.Http.Json;
 var url = "https://localhost:7031";
 
 var client = new HttpClient();
-//int id = 228;
-//Person? p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
-//Console.WriteLine(p);
 
-Console.WriteLine("Hledej podle emailu:");
-var email = Console.ReadLine();
-var res = await client.GetFromJsonAsync<List<Person>>($"{url}/person/searchemail/{email}");
+Person p = new()
+{
+    FirstName = "Jáchym3",
+    LastName = "Simpson3",
+    DateOfBirth = new DateTime(2003, 5, 3),
+    Email = "jachym3@random.net"
+};
 
-if (res == null || res.Count == 0)
-{
-    Console.WriteLine("nenašel žádnou osobu");
-}
-else
-{
-    foreach (var item in res)
-    {
-        Console.WriteLine(item);
-    }
-}
+var result = await client.PostAsJsonAsync<Person>($"{url}/person/create", p);
+var person_created = await result.Content.ReadFromJsonAsync<Person>();
 
 Console.ReadLine();
 
