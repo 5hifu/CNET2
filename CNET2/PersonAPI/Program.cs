@@ -31,6 +31,17 @@ app.MapPost("/person/create", (Person person, PeopleContext db) =>
     return person;
 });
 
+app.MapPut("/person/edit/", (Person person, PeopleContext db) =>
+{
+    var person_db = db.People.Where(x => x.Id == person.Id).Single();
+
+    //person_db.FirstName = person.FirstName;
+    
+    db.Entry<Person>(person_db).CurrentValues.SetValues(person);
+    db.SaveChanges();
+    return person_db;
+});
+
 app.Run();
 
 
