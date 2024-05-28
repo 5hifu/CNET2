@@ -31,6 +31,12 @@ Console.WriteLine(p);
 
 Console.ReadLine();
 
+// přidejte do modelu PO - právnická osoba (LegalEntity)
+// evidujeme u nich Id, Name, RegistratonNumber
+// udělejte migraci a aktualizaci schématu db
+// přidejte endpoint do API na přidání nové PO
+// z konzolové aplikace přidejte 2-3 PO
+
 
 
 
