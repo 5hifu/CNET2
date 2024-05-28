@@ -2,39 +2,22 @@
 
 var data = DatasetAccess.LoadData(@"C:\Users\Student\source\repos\kubicek-skoleni\CNET2\data2024.json");
 
-//var pocet_osob = data.Count();
 
-//Console.WriteLine($"počet osob: {pocet_osob}");
 
-//var person = data.First();
-//Console.WriteLine(person.Email);
+// nejmladší osoba
 
-//var take1 = data.Take(1).ToArray();
-//foreach (var p in take1)
-//{
-//    Console.WriteLine(p.Email);
-//}
+//var nejmladsi = data.OrderByDescending(x => x.DateOfBirth).First();
 
-//var p2 = data.Where(person => person.Email.Contains("gmail.com"))
-//            .FirstOrDefault();
+//Console.WriteLine(nejmladsi);
 
-//if (p2 != null)
-//{
-//    Console.WriteLine(p2.Email);
-//}
-//else
-//{
-//    Console.WriteLine("p2 is null");
-//}
+// města od nepočetnějších
 
-//data.Where(x => x.Id == 5).SingleOrDefault();
+var mesta_ordered = data.GroupBy(person => person.Address?.City)
+                        .OrderByDescending(mesto_lide => mesto_lide.Count())
+                        .Take(10)
+                        .ToList();
 
-var g = data.GroupBy(x => x.LastName);
-
-foreach(var skupina in g)
+foreach(var mesto in mesta_ordered)
 {
-    var lastname = skupina.Key;
-    var pocet_lidi_ve_skupine = skupina.Count();
-
-    Console.WriteLine($"{lastname}: {pocet_lidi_ve_skupine}");
+    Console.WriteLine($"{mesto.Key}: {mesto.Count()}");
 }

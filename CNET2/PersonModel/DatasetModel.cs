@@ -9,6 +9,9 @@ public class Person
     public DateTime DateOfBirth { get; set; }
     public Address Address { get; set; }
     public List<Contract> Contracts { get; set; }
+
+    public override string ToString()
+    => $"{FirstName} {LastName} {Email} {DateOfBirth.ToString("yyyy-MM-dd")}";
 }
 
 public class Address
