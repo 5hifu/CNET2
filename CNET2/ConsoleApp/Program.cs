@@ -1,28 +1,27 @@
-﻿using PersonModel;
+﻿using PersonData;
+using PersonModel;
 
-var data = DatasetAccess.LoadData(@"C:\Users\Student\source\repos\kubicek-skoleni\CNET2\data2024.json");
+var dataset = DatasetAccess.LoadData(@"C:\Users\Student\source\repos\kubicek-skoleni\CNET2\data2024.json");
+
+var context = new PeopleContext();
+
+var cnt = context.People.Count();
+
+Console.WriteLine($"people cnt: {cnt}");
+
+Console.WriteLine("Naplnit db? (y/n)");
+var answer = Console.ReadLine();
+if(answer.ToLower() == "y")
+{
+    context.People.AddRange(dataset);
+    context.SaveChanges();
+    Console.WriteLine("done");
+}
+else
+{
+    Console.WriteLine("skipping");
+}
 
 
 
-// nejmladší osoba
 
-//var nejmladsi = data.OrderByDescending(x => x.DateOfBirth).First();
-
-//Console.WriteLine(nejmladsi);
-
-// města od nepočetnějších
-
-//var mesta_ordered = data.GroupBy(person => person.Address?.City)
-//                        .OrderByDescending(mesto_lide => mesto_lide.Count())
-//                        .Take(10)
-//                        .ToList();
-
-//foreach(var mesto in mesta_ordered)
-//{
-//    Console.WriteLine($"{mesto.Key}: {mesto.Count()}");
-//}
-
-// kolik lidi bez smluv (Contracts)
-
-var pocet_bez_smlouvy = data.Where(x => x.Contracts == null || x.Contracts.Count() == 0).Count();
-Console.WriteLine(pocet_bez_smlouvy);
