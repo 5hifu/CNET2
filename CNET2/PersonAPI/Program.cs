@@ -17,6 +17,8 @@ app.MapGet("/person/{id}", (int id, PeopleContext db) =>
                             db.People.Where(x => x.Id == id).Single());
 
 
+
+
 app.Run();
 
 
