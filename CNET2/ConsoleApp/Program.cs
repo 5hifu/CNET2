@@ -12,12 +12,17 @@ var data = DatasetAccess.LoadData(@"C:\Users\Student\source\repos\kubicek-skolen
 
 // města od nepočetnějších
 
-var mesta_ordered = data.GroupBy(person => person.Address?.City)
-                        .OrderByDescending(mesto_lide => mesto_lide.Count())
-                        .Take(10)
-                        .ToList();
+//var mesta_ordered = data.GroupBy(person => person.Address?.City)
+//                        .OrderByDescending(mesto_lide => mesto_lide.Count())
+//                        .Take(10)
+//                        .ToList();
 
-foreach(var mesto in mesta_ordered)
-{
-    Console.WriteLine($"{mesto.Key}: {mesto.Count()}");
-}
+//foreach(var mesto in mesta_ordered)
+//{
+//    Console.WriteLine($"{mesto.Key}: {mesto.Count()}");
+//}
+
+// kolik lidi bez smluv (Contracts)
+
+var pocet_bez_smlouvy = data.Where(x => x.Contracts == null || x.Contracts.Count() == 0).Count();
+Console.WriteLine(pocet_bez_smlouvy);
