@@ -18,18 +18,18 @@ var client = new HttpClient();
 //var person_created = await result.Content.ReadFromJsonAsync<Person>();
 
 
-int id = 228;
-Person? p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
-Console.WriteLine(p);
+//int id = 228;
+//Person? p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
+//Console.WriteLine(p);
 
-p.Email = "novy.email@seznam.cz";
+//p.Email = "novy.email@seznam.cz";
 
-var result = await client.PutAsJsonAsync<Person>($"{url}/person/edit", p);
+//var result = await client.PutAsJsonAsync<Person>($"{url}/person/edit", p);
 
-p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
-Console.WriteLine(p);
+//p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
+//Console.WriteLine(p);
 
-Console.ReadLine();
+//Console.ReadLine();
 
 // přidejte do modelu PO - právnická osoba (LegalEntity)
 // evidujeme u nich Id, Name, RegistratonNumber
@@ -38,6 +38,29 @@ Console.ReadLine();
 // z konzolové aplikace přidejte 2-3 PO
 
 
+List<LegalEntity> le_list = new()
+{
+    new LegalEntity()
+    {
+        Id = 0,
+        Name = "Koch a syn, s.r.o",
+        RegNumber = "124733",
+    },
+    new LegalEntity()
+    {
+        Id = 0,
+        Name = "Rohlíkárna",
+        RegNumber = "8822113",
+    },
+    new LegalEntity()
+    {
+        Id = 0,
+        Name = "Potapěčtství s.r.o",
+        RegNumber = "7721033",
+    },
+};
 
-
-
+foreach (var le in le_list)
+{
+    var result = await client.PostAsJsonAsync<LegalEntity>($"{url}/le/create", le);
+}

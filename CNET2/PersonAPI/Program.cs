@@ -42,6 +42,15 @@ app.MapPut("/person/edit/", (Person person, PeopleContext db) =>
     return person_db;
 });
 
+app.MapPost("/le/create", (LegalEntity le, PeopleContext db) =>
+{ 
+    db.LegalEntities.Add(le);
+    db.SaveChanges();
+    return le;
+});
+
+app.MapGet("/le/all", (PeopleContext db) => db.LegalEntities);
+
 app.Run();
 
 
