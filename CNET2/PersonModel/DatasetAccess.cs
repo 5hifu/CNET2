@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonModel
 {
-    internal class DatasetAccess
+    public class DatasetAccess
     {
         public static List<Person> LoadData(string filepath)
         {
