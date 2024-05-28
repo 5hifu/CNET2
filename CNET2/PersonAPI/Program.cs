@@ -13,10 +13,14 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
+app.MapGet("/", () => "Hello");
+
 app.MapGet("/person/{id}", (int id, PeopleContext db) =>
                             db.People.Where(x => x.Id == id).Single());
 
-
+app.MapGet("/person/searchemail/{email}", (string email, PeopleContext db) =>
+    db.People.Where(osoba => osoba.Email.ToLower().Contains(email.ToLower()))
+);
 
 
 app.Run();
