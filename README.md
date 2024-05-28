@@ -11,3 +11,6 @@ Alternativní editor na práci s daty a prototypování: LINQPad https://www.lin
 [PDF úvodní prezentace](/netsharp.pdf)
 
 Toto repository si naklonujte k sobě, najdete postupně výsledky naší práce.
+
+## EF core
+https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=visual-studio
