@@ -1,0 +1,40 @@
+ First() vs Take(1)
+	First - první element
+	Take(1) - kolekce o velikosti 1
+ 
+ FirstOrDefault() vs First()
+	FirstOrDefault(x => x.Age > 18) - když je kolekce prázdná, tak vrátí null (defaultní hodnotu)
+	First() - exception
+	
+	FirstOrDefault().Select(x => x == null ? 10 : x) 
+ 
+ First() vs Single()
+	First() - první element
+	Single() - právě jeden element který vrátí, jinak exception
+ 
+ GroupBy
+	seskupení podle klíče
+	data.GroupBy(x => x.City + x.Street )
+  
+ co můžete dělat s IEnumerable?
+	procházet - foreach
+	List - IList
+ 
+ Co znamená ORM?
+	Object Relational Mapping
+ 
+ Co s EF používáme na dotazy nad databází?
+	DbContext - mapovací třída, intance je spojení s db
+	DbSet - property - tabulky
+ 
+ Jak se v EF data do db ukládají?
+	context.SaveChanges()
+ 
+ Co znamená "Code First"? Co je to migrace?
+	definujeme entity v C# a db schéma je generované
+ 
+ Co je Dependency Injection?
+	IoC - Inversion of Control - DI
+ 
+ Co je JsonSerializer
+	třída na převod json stringu do entit a naopak
