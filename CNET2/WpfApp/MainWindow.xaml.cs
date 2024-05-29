@@ -21,9 +21,6 @@ namespace WpfApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            txbInfo.Text = "Hello World!";
-        }
+       
     }
 }

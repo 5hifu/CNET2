@@ -17,7 +17,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/", () => "Hello");
 
-app.MapGet("/people/all", (PeopleContext db) => db.Contracts.First());
+app.MapGet("/people/all", (PeopleContext db) => db.People);
 
 app.MapGet("/person/{id}", (int id, PeopleContext db) =>
                             db.People.Where(x => x.Id == id).Single());

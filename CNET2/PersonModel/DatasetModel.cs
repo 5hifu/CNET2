@@ -20,8 +20,7 @@ public class LegalEntity
     public string Name { get; set; }
 
     public string RegNumber { get; set; }
-
-    public Address Address { get; set; }
+      
 }
 
 public class Address
