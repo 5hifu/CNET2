@@ -30,5 +30,12 @@ namespace WpfApp
 
             txbInfo.Text = people.Count.ToString();
         }
+
+        private async void btnCallAsync_Click(object sender, RoutedEventArgs e)
+        {
+            var people = await data.GetAllAsync();
+
+            txbInfo.Text = people.Count.ToString();
+        }
     }
 }

@@ -25,5 +25,13 @@ namespace WpfApp
 
             return data;
         }
+
+        public async Task<List<Person>> GetAllAsync()
+        {
+            var client = new HttpClient();
+            var data = await client.GetFromJsonAsync<List<Person>>($"{url}/people/all");
+
+            return data;
+        }
     }
 }
