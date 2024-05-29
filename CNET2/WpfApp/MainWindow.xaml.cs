@@ -37,5 +37,10 @@ namespace WpfApp
 
             txbInfo.Text = people.Count.ToString();
         }
+
+        private void btnCallProgress_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

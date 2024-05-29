@@ -14,12 +14,20 @@
 
                 <Button Content="Call Async" x:Name="btnCallAsync" FontSize="24"
                     Width="150" Height="35" Click="btnCallAsync_Click" Margin="5"  />
+
+                <Button Content="Call Progress" x:Name="btnCallProgress" FontSize="24"
+                        Width="200" Height="35" 
+                        Click="btnCallProgress_Click" Margin="5"  />
             </StackPanel>
 
             <TextBlock x:Name="txbInfo" HorizontalAlignment="Stretch"
                        TextWrapping="Wrap" 
                        Text="TextBlock" VerticalAlignment="Top" 
                        Height="50" Foreground="White" FontSize="24"/>
+
+            <ProgressBar x:Name="progres1" Height="30" 
+                         HorizontalAlignment="Stretch"
+                         Foreground="GreenYellow" />
 
             <TextBox x:Name="txtArea" HorizontalAlignment="Stretch"
                      Height="300" FontSize="24" Background="Beige"

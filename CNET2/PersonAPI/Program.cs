@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PersonData;
 using PersonModel;
+using System.Runtime.Intrinsics.Arm;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.MapGet("/", () => "Hello");
+
+app.MapGet("/people/count", (PeopleContext db) => db.People.Count());
 
 app.MapGet("/people/all", (PeopleContext db) =>
 {
