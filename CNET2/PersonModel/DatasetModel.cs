@@ -15,12 +15,13 @@ public class Person
 }
 
 public class LegalEntity
-{
+{ 
     public int Id { get; set; }
     public string Name { get; set; }
 
     public string RegNumber { get; set; }
 
+    public Address Address { get; set; }
 }
 
 public class Address

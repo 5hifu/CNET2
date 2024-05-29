@@ -51,6 +51,10 @@ List<LegalEntity> le_list = new()
         Id = 0,
         Name = "Rohlíkárna",
         RegNumber = "8822113",
+        Address = new Address()
+        {
+            City = "Brno",
+        }
     },
     new LegalEntity()
     {
