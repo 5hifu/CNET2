@@ -18,6 +18,12 @@ namespace ConsoleApp
                 var client = new HttpClient();
                 var people = await client.GetFromJsonAsync<List<Person>>($"{url}/people/all");
                 return people;
+
+            }
+            catch (System.Net.Http.HttpRequestException ex)
+            {
+                logger.Log("chyba při připojování k API");
+                return new List<Person>();
             }
             catch (Exception ex)
             {
@@ -25,6 +31,7 @@ namespace ConsoleApp
                 logger.Log(ex);
                 return new List<Person>();
             }
+        
         }
     }
 }
