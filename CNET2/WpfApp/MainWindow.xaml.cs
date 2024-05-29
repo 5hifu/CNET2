@@ -16,11 +16,19 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private PersonData data;
         public MainWindow()
         {
             InitializeComponent();
+
+            data = new PersonData("https://localhost:7031");
         }
 
-       
+        private void btnCallSync_Click(object sender, RoutedEventArgs e)
+        {
+            var people = data.GetAll();
+
+            txbInfo.Text = people.Count.ToString();
+        }
     }
 }
