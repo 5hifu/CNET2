@@ -34,7 +34,7 @@ namespace WpfApp
             return data;
         }
 
-        public async Task<List<Person>> GetRange(int skip, int take)
+        public async Task<List<Person>> GetRangeAsync(int skip, int take)
         {
             var client = new HttpClient();
             var get_url = $"{url}/people/skip/{skip}/take/{take}";
@@ -43,7 +43,7 @@ namespace WpfApp
             return data;
         }
 
-        public async Task<int> GetPeopleCount()
+        public async Task<int> GetPeopleCountAsync()
         {
             var client = new HttpClient();
             return await client.GetFromJsonAsync<int>($"{url}/people/count");

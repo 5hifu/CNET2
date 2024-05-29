@@ -38,9 +38,31 @@ namespace WpfApp
             txbInfo.Text = people.Count.ToString();
         }
 
-        private void btnCallProgress_Click(object sender, RoutedEventArgs e)
+        private async void btnCallProgress_Click(object sender, RoutedEventArgs e)
         {
+            IProgress<int> progress = new Progress<int>(percent =>
+            {
+                progres1.Value = percent;
+                txbInfo.Text = $"{percent}%";
+            });
 
+            await DownloadWithProgress(progress);
+
+            txbInfo.Text += " HOTOVO";
+        }
+
+        private async Task DownloadWithProgress(IProgress<int> progress)
+        {
+            int totalItems = await data.GetPeopleCountAsync();
+            int chunk = 100;
+            int totalRequests = totalItems / chunk;
+
+            for (int i = 0; i <= totalRequests; i++)
+            {
+                var newdata = await data.GetRangeAsync(i * chunk, chunk);
+                var proc = (i  * 100) / totalRequests;
+                progress.Report(proc);
+            }
         }
     }
 }
